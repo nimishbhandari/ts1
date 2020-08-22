@@ -15,11 +15,18 @@
 html,
 body {
 	height: 100%;
+	overflow-x: hidden;
 	font-family: "Montserrat", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
 
+.ieee{
+	color:#fff;
+}
+.sb{
+	color:#fc0254;
+}
 h1,
 h2,
 h3,
@@ -721,26 +728,54 @@ Playlist page
 Blog page
  -------------------*/
 
-.blog-item {
+.blog-item ,.about-item{
 	margin-bottom: 90px;
 }
 
-.blog-item img {
+.blog-item img ,.about-item img{
 	margin-bottom: 36px;
 }
+/* add to mq */
+.about-item {
+	display: flex;
+	background:rgb(255,255,224);
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	flex-direction: column;
+	box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
+}
+.about-item .line{
+	display: flex;
+}
+.about-item .content{
+	padding: 15px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.about-item img{
+	width:50%;
+	margin-bottom: 0px;
+}
 
-.blog-item .blog-date {
+.last-footer{
+	margin-top:45px;
+}
+
+.blog-item .blog-date{
 	font-size: 12px;
 	font-weight: 600;
 	color: #fc0254;
 	margin-bottom: 24px;
 }
 
-.blog-item h3 {
+.blog-item h3 ,.about-item h3{
 	margin-bottom: 5px;
 }
 
-.blog-item .blog-meta {
+.blog-item .blog-meta{
 	font-size: 12px;
 	color: #e9e9e9;
 	font-weight: 500;
@@ -751,8 +786,9 @@ Blog page
 	color: #c3c4c9;
 }
 
-.blog-item p {
+.blog-item p ,.about-item p{
 	font-size: 14px;
+	padding: 15px;
 	margin-bottom: 0;
 	line-height: 1.8;
 }
@@ -840,6 +876,7 @@ Category page
 
 .category-section .section-title {
 	float: left;
+	width: 100vw;
 }
 
 .category-links {
@@ -867,8 +904,19 @@ Category page
 .category-item {
 	position: relative;
 	margin: 0 17px;
+	overflow: hidden;
 }
-
+.category-item:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	left: 0;
+	border-radius: 40px;
+	top: 50%;
+	z-index: 5;
+	background: rgba(34, 34, 34, 0.671);
+}
 .category-item img {
 	min-width: 100%;
 	border-radius: 40px;
@@ -876,6 +924,7 @@ Category page
 
 .category-item .ci-text {
 	position: absolute;
+	z-index: 6;
 	bottom: 35px;
 	left: 50px;
 }
@@ -892,6 +941,7 @@ Category page
 }
 
 .category-item .ci-link {
+	z-index: 6;
 	position: absolute;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1382,6 +1432,9 @@ Responsive
 /* Medium screen : 992px. */
 
 @media only screen and (min-width: 1200px) and (max-width: 1360px) {
+	.about-item img{
+		height:245px;
+	}
 	.header-right {
 		margin-left: 50px;
 	}
@@ -1396,6 +1449,16 @@ Responsive
 /* Medium screen : 992px. */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.about-item img{
+		height:245px;
+		width: 100%;
+	}
+	.about-item .content{
+		padding: 30px 20px 15px 20px;
+	}
+	.about-item .line{
+	  flex-direction: column;
+	}
 	.header-section {
 		padding-left: 15px;
 		padding-right: 20px;
@@ -1451,6 +1514,12 @@ Responsive
 /* Tablet :768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.about-item img{
+		height:100%;
+	}
+	.about-item .line{
+		flex-direction: column;
+	  }
 	.hr-img {
 		display: none;
 	}
@@ -1582,11 +1651,30 @@ Responsive
 	.search-form {
 		margin-top: 40px;
 	}
+	
+	.about-item{
+		flex-direction: column;
+	}
+	.last-footer{
+		margin-bottom: 40px;
+	}
+	.about-item img{
+		width: 100%;
+	}
 }
 
 /* Large Mobile :480px. */
 
 @media only screen and (max-width: 767px) {
+	.about-item{
+		flex-direction: column;
+	}
+	.about-item .line{
+		flex-direction: column;
+	  }
+	.about-item img{
+		width: 100%;
+	}
 	.hr-img {
 		display: none;
 	}
@@ -1654,7 +1742,7 @@ Responsive
 		margin-bottom: 50px;
 	}
 	.footer-widget {
-		margin-bottom: 40px;
+		margin-bottom: 0px;
 	}
 	.category-section .section-title,
 	.playlist-section .section-title {
@@ -1744,11 +1832,25 @@ Responsive
 	.search-form {
 		margin-top: 40px;
 	}
+	
 }
 
 /* Small Mobile :320px. */
 
 @media only screen and (max-width: 479px) {
+	.about-item{
+		flex-direction: column;
+	}
+	.last-footer{
+		margin-top:0px;
+		margin-bottom: 40px;
+	}	
+	.about-item .line{
+		flex-direction: column;
+	  }
+	.about-item img{
+		width: 100%;
+	}
 	.section-title h2,
 	.hs-item h2,
 	.sub-text h2 {
