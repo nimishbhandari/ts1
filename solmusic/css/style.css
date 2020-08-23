@@ -172,19 +172,30 @@ Commom elements
 }
 
 .loader {
-	width: 40px;
-	height: 40px;
+	width: 100px;
+	height: 100px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -13px;
-	margin-left: -13px;
-	border-radius: 60px;
+	border-radius: 50%;
 	animation: loader 0.8s linear infinite;
 	-webkit-animation: loader 0.8s linear infinite;
 }
 
 @keyframes loader {
+	0% {
+		transform:scale(1);
+	}
+	50% {
+	
+		transform:scale(2);
+	}
+	100% {
+	
+		transform:scale(1);
+	}
+}
+/* @keyframes loader {
 	0% {
 		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
@@ -221,7 +232,7 @@ Commom elements
 		border: 4px solid #f44336;
 		border-left-color: transparent;
 	}
-}
+} */
 
 /*------------------
 Header section
@@ -653,7 +664,7 @@ Playlist page
  -------------------*/
 
 .playlist-section {
-	padding: 105px 42px;
+	padding: 60px 60px;
 }
 
 .playlist-section .section-title {
@@ -684,12 +695,13 @@ Playlist page
 
 .playlist-item {
 	text-align: center;
-	padding: 0 11px;
+	padding: 3%;
 	margin-bottom: 30px;
 }
 
 .playlist-item img {
-	min-width: 100%;
+	width: 280px;
+	height: 280px;
 	border-radius: 40px;
 	margin-bottom: 30px;
 }
@@ -736,6 +748,44 @@ Blog page
 	margin-bottom: 36px;
 }
 /* add to mq */
+.btn-purple{
+	background-color:#272151;
+	color:#fff;
+	margin: 10px 30px;
+	width: 105px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+	border-top-left-radius:30px;
+	border-bottom-left-radius:30px;
+	border-top-right-radius:30px;
+	border-bottom-right-radius:30px;
+	transition: .5s ease;
+}
+.btn-purple:hover{
+	color:#fff;
+	background:#fc0254;
+	font-weight: 500;
+}
+.one{
+	background-color:#272151;
+}
+.faculty{
+padding-left:15px;
+}
+.one h5,.one h3{
+	color:#fff;
+}
+.membership-page ul li{
+	list-style: none;
+}
+.resource-links ul li {
+	margin: 0px 0px 20px 0px;
+}
+.membership-page ul li p{
+	margin: 20px 0 0 0;
+}
 .about-item {
 	display: flex;
 	background:rgb(255,255,224);
@@ -1453,6 +1503,10 @@ Responsive
 		height:245px;
 		width: 100%;
 	}
+	.playlist-item img{
+		width: 250px;
+		height: 250px;
+	}
 	.about-item .content{
 		padding: 30px 20px 15px 20px;
 	}
@@ -1516,6 +1570,14 @@ Responsive
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.about-item img{
 		height:100%;
+	}
+	.tab-screen{
+		display: flex;
+		flex-direction: column;
+	}
+	.playlist-item img{
+		width: 250px;
+		height: 250px;
 	}
 	.about-item .line{
 		flex-direction: column;
@@ -1669,6 +1731,11 @@ Responsive
 	.about-item{
 		flex-direction: column;
 	}
+	
+	.playlist-item img{
+		width: 250px;
+		height: 250px;
+	}
 	.about-item .line{
 		flex-direction: column;
 	  }
@@ -1760,7 +1827,7 @@ Responsive
 		padding: 0;
 	}
 	.playlist-section {
-		padding: 100px 0;
+		padding: 100px 20px;
 	}
 	.artist-details img {
 		float: none;
